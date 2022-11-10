@@ -39,10 +39,20 @@ const Navbar = () => {
 
           <div>
             <div>
-              <a href="/">Login</a>
+              <a
+                href="/"
+                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+              >
+                Login
+              </a>
 
               <div>
-                <a href="/">Register</a>
+                <a
+                  href="/"
+                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                >
+                  Register
+                </a>
               </div>
             </div>
 
