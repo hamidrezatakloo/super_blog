@@ -6,6 +6,7 @@ const Navbar = () => {
           <div>
             <a href="/" className="block text-teal-600">
               <svg
+                className="h-8"
                 viewBox="0 0 28 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
