@@ -38,7 +38,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <div sm:flex sm:gap-4>
+            <div className="sm:flex sm:gap-4">
               <a
                 href="/"
                 className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
