@@ -19,7 +19,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          <div>
+          <div className="md:flex md:items-center md:gap-12">
             <nav aria-label="Site Nav">
               <ul>
                 <li>
