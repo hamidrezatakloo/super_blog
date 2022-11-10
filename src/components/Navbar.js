@@ -2,7 +2,7 @@ const Navbar = () => {
   return (
     <header aria-label="Site Header" className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div>
+        <div className="flex h-16 items-center justify-between">
           <div>
             <a href="/">
               <svg
