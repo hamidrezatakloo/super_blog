@@ -22,15 +22,15 @@ const Navbar = () => {
           <div className="md:flex md:items-center md:gap-12">
             <nav aria-label="Site Nav" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
-                <li>
+                <li className="text-gray-500 transition hover:text-gray-500/75">
                   <a href="/">About</a>
                 </li>
 
-                <li>
+                <li className="text-gray-500 transition hover:text-gray-500/75">
                   <a href="/">Bookmarks</a>
                 </li>
 
-                <li>
+                <li className="text-gray-500 transition hover:text-gray-500/75">
                   <a href="/">Blogs</a>
                 </li>
               </ul>
