@@ -37,7 +37,7 @@ const Navbar = () => {
             </nav>
           </div>
 
-          <div>
+          <div className="flex items-center gap-4">
             <div sm:flex sm:gap-4>
               <a
                 href="/"
