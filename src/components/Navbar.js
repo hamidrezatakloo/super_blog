@@ -46,7 +46,7 @@ const Navbar = () => {
                 Login
               </a>
 
-              <div>
+              <div className="hidden sm:flex">
                 <a
                   href="/"
                   className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
