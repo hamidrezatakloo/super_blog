@@ -14,7 +14,12 @@ const Home = () => {
           </p>
 
           <div className="flex flex-wrap justify-center mt-8 gap-4">
-            <a href="/get-started">Get Started</a>
+            <a
+              href="/get-started"
+              className="block w-full rounded border border-blue-600 bg-blue-600"
+            >
+              Get Started
+            </a>
 
             <a href="/about">Learn More</a>
           </div>
