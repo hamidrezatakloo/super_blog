@@ -3,7 +3,7 @@ const Home = () => {
     <section className="bg-gray-900 text-white flex-1">
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
         <div className="mx-auto max-w-3xl text-center">
-          <h1>
+          <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent">
             Read and Write articles
             <span> Increase your knowledge </span>
           </h1>
