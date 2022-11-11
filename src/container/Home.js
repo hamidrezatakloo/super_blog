@@ -16,7 +16,7 @@ const Home = () => {
           <div className="flex flex-wrap justify-center mt-8 gap-4">
             <a
               href="/get-started"
-              className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-whit focus:outline-none focus:ring"
+              className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-whit focus:outline-none focus:ring active:text-opacity-75"
             >
               Get Started
             </a>
