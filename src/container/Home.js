@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <section>
+    <section className="bg-gray-900 text-white">
       <div>
         <div>
           <h1>
