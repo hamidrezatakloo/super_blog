@@ -8,7 +8,7 @@ const Home = () => {
             <span className="sm:block"> Increase your knowledge </span>
           </h1>
 
-          <p className="mx-auto mt-4 max-w-xl">
+          <p className="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
             Discover stories, thinking, and expertise from writers on any topic
             start reading or write an article now
           </p>
