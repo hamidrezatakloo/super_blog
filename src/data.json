@@ -1,0 +1,32 @@
+[
+    {
+        "src":"./redux.png",
+        "title":"Do You Really Need Redux? - Pros And Cons Of This State Management Library",
+        "desc":"Gone are the days where state can be an afterthought for your web project. Websites are handling more data live than they ever have before — but that doesn’t need to be a scary thing."
+    },
+    {
+        "src":"./vue-vs-react.png",
+        "title":"Vue vs React in 2022 - Comparison of Two Most Popular JS Frameworks",
+        "desc":"Vue.js and React.js are two popular frontend frameworks in the developer world, switching top spot on the podium each year in the categories of most loved, used or popular"
+    },
+    {
+        "src":"./nextjs.jpg",
+        "title":"Nextjs for everyone — with some basic knowledge of React",
+        "desc":"Next.js is a JavaScript framework created by Zeit. It lets you build server-side rendering and static web applications using React."
+    },
+    {
+        "src":"./tailvsboot.webp",
+        "title":"Tailwind CSS vs Bootstrap: whose one has a future?",
+        "desc":"We’re experiencing a renaissance of amazing web platforms and responsive design. Responsive user interfaces have mostly been implemented with libraries like Bootstrap, Foundation, Bulma, or good old-fashioned media queries."
+    },
+    {
+        "src":"./typescript.webp",
+        "title":"When should I use TypeScript?",
+        "desc":"When your codebase is huge, and more than one person works on the project, a type system can help you avoid a lot of common errors"
+    },
+    {
+        "src":"./sass.jpg",
+        "title":"The Complete Guide To SCSS/SASS",
+        "desc":"In this tutorial Sassy, Sass and SCSS will refer to roughly the same thing. Conceptually, there isn’t much difference."
+    }
+]
