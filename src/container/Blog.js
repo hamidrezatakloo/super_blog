@@ -2,7 +2,7 @@ const Blog = () => {
   return (
     <section className="p-2 sm:p-8">
       <div>
-        <h1>Hot Article</h1>
+        <h1 className="font-bold text-2xl my-4">Hot Article</h1>
         <div>
           <img src="./webpack.png" alt="hotArticle" />
           <h2>Why we need webpack in frontend development</h2>
