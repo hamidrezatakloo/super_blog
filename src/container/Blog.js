@@ -9,7 +9,9 @@ const Blog = () => {
             alt="hotArticle"
             className="rounded object-contain"
           />
-          <h2>Why we need webpack in frontend development</h2>
+          <h2 className="font-medium text-2xl my-4">
+            Why we need webpack in frontend development
+          </h2>
           <p>
             Webpack is a tool that lets you compile JavaScript modules. It is
             also known as a module bundler. Given a large number of files, it
