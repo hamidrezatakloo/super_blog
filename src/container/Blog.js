@@ -1,6 +1,6 @@
 const Blog = () => {
   return (
-    <section>
+    <section className="p-2 sm:p-8">
       <div>
         <h1>Hot Article</h1>
         <div>
