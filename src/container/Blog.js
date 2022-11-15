@@ -12,7 +12,7 @@ const Blog = () => {
           <h2 className="font-medium text-2xl my-4">
             Why we need webpack in frontend development
           </h2>
-          <p>
+          <p className="text-gray-500 font-medium">
             Webpack is a tool that lets you compile JavaScript modules. It is
             also known as a module bundler. Given a large number of files, it
             generates a single file (or a few files) that run your app.
