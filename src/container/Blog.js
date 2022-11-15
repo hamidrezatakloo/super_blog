@@ -4,7 +4,11 @@ const Blog = () => {
       <div>
         <h1 className="font-bold text-2xl my-4">Hot Article</h1>
         <div>
-          <img src="./webpack.png" alt="hotArticle" />
+          <img
+            src="./webpack.png"
+            alt="hotArticle"
+            className="rounded object-contain"
+          />
           <h2>Why we need webpack in frontend development</h2>
           <p>
             Webpack is a tool that lets you compile JavaScript modules. It is
