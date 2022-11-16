@@ -1,5 +1,6 @@
 import data from "../data.json";
 import Post from "../components/Post";
+import Pagination from "../components/pagination";
 const Blog = () => {
   return (
     <section className="p-2 sm:p-8">
@@ -47,6 +48,7 @@ const Blog = () => {
           ))}
         </div>
       </div>
+      <Pagination />
     </section>
   );
 };
