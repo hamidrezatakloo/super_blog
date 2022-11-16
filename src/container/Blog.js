@@ -33,6 +33,20 @@ const Blog = () => {
           </div>
         </div>
       </div>
+      <div className="max-w-screen-xl  2xl:max-w-screen-2xl mx-auto my-4">
+        <h1 className="font-bold text-2xl my-4">Last Articles</h1>
+        <div className="grid grid-cols-12">
+          {data.map((post, index) => (
+            <Post
+              col
+              src={post.src}
+              key={index}
+              title={post.title}
+              desc={post.desc}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
