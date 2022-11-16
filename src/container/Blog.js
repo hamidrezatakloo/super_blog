@@ -1,7 +1,7 @@
 const Blog = () => {
   return (
     <section className="p-2 sm:p-8">
-      <div className="max-w-screen-xl 2xl:max-w-screen-2xl">
+      <div className="max-w-screen-xl 2xl:max-w-screen-2xl mx-auto">
         <h1 className="font-bold text-2xl my-4">Hot Article</h1>
         <div>
           <img
