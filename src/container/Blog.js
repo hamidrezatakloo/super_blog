@@ -1,3 +1,5 @@
+import data from "../data.json";
+import Post from "../components/Post";
 const Blog = () => {
   return (
     <section className="p-2 sm:p-8">
