@@ -4,14 +4,14 @@ import Blog from "./container/Blog";
 import Layout from "./hoc/Layout";
 function App() {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/" element={<Blog />}></Route>
+          <Route path="/blog" element={<Blog />}></Route>
         </Routes>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
