@@ -19,7 +19,7 @@ const Blog = () => {
               generates a single file (or a few files) that run your app.
             </p>
           </div>
-          <div>
+          <div className="col-span-6 hidden xl:block">
             {data.slice(0, 3).map((post, index) => (
               <Post
                 src={post.src}
