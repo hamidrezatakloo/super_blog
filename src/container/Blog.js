@@ -19,6 +19,16 @@ const Blog = () => {
               generates a single file (or a few files) that run your app.
             </p>
           </div>
+          <div>
+            {data.slice(0, 3).map((post, index) => (
+              <Post
+                src={post.src}
+                key={index}
+                title={post.title}
+                desc={post.desc}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
