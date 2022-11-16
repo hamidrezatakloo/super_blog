@@ -3,7 +3,7 @@ const Blog = () => {
     <section className="p-2 sm:p-8">
       <div className="border-y-2 border-black max-w-screen-xl 2xl:max-w-screen-2xl mx-auto pb-[50px]">
         <h1 className="font-bold text-2xl my-4">Hot Article</h1>
-        <div>
+        <div className=" flex justify-center flex-col">
           <img
             src="./webpack.png"
             alt="hotArticle"
