@@ -135,3 +135,12 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'superblogautomail@gmail.com'
 EMAIL_HOST_PASSWORD = 'uutfbsqlpmysqbjx'
+
+DJOSER = {
+    'SET_PASSWORD_RETYPE':True,
+    'USER_CREATE_PASSWORD_RETYPE':True,
+    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+}
