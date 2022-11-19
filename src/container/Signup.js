@@ -1,4 +1,10 @@
+import { useState } from "react";
+
 const Signup = () => {
+  const [data, setData] = useState({});
+  const handleInput = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
   return (
     <section class="bg-white">
       <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -80,6 +86,7 @@ const Signup = () => {
                 </label>
 
                 <input
+                  onChange={handleInput}
                   type="text"
                   id="FirstName"
                   name="first_name"
@@ -96,6 +103,7 @@ const Signup = () => {
                 </label>
 
                 <input
+                  onChange={handleInput}
                   type="text"
                   id="LastName"
                   name="last_name"
@@ -112,6 +120,7 @@ const Signup = () => {
                 </label>
 
                 <input
+                  onChange={handleInput}
                   type="email"
                   id="Email"
                   name="email"
@@ -128,6 +137,7 @@ const Signup = () => {
                 </label>
 
                 <input
+                  onChange={handleInput}
                   type="password"
                   id="Password"
                   name="password"
@@ -144,9 +154,10 @@ const Signup = () => {
                 </label>
 
                 <input
+                  onChange={handleInput}
                   type="password"
                   id="PasswordConfirmation"
-                  name="password_confirmation"
+                  name="re_password"
                   class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
@@ -154,6 +165,7 @@ const Signup = () => {
               <div class="col-span-6">
                 <label for="MarketingAccept" class="flex gap-4">
                   <input
+                    onChange={handleInput}
                     type="checkbox"
                     id="MarketingAccept"
                     name="marketing_accept"
