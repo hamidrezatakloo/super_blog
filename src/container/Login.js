@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <section class="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -82,9 +84,9 @@ const Login = () => {
           <div class="flex items-center justify-between">
             <p class="text-sm text-gray-500">
               No account?
-              <a href="#" class="underline">
+              <Link to="/signup" class="underline">
                 Sign up
-              </a>
+              </Link>
             </p>
 
             <button
