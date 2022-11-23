@@ -114,7 +114,7 @@ const Signup = () => {
                   type="text"
                   id="FirstName"
                   name="first_name"
-                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
@@ -131,7 +131,7 @@ const Signup = () => {
                   type="text"
                   id="LastName"
                   name="last_name"
-                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
@@ -148,7 +148,7 @@ const Signup = () => {
                   type="email"
                   id="Email"
                   name="email"
-                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
@@ -165,7 +165,7 @@ const Signup = () => {
                   type="password"
                   id="Password"
                   name="password"
-                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
@@ -182,7 +182,7 @@ const Signup = () => {
                   type="password"
                   id="PasswordConfirmation"
                   name="re_password"
-                  class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
 
@@ -193,7 +193,7 @@ const Signup = () => {
                     type="checkbox"
                     id="MarketingAccept"
                     name="marketing_accept"
-                    class="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
+                    class="p-2 h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
                   />
 
                   <span class="text-sm text-gray-700">
