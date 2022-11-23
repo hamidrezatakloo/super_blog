@@ -1,9 +1,23 @@
+import axios from "axios";
 import { useState } from "react";
 
 const Signup = () => {
   const [data, setData] = useState({});
   const handleInput = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const allowed = ["email", "password", "re_password"];
+    const filterData = Object.keys(data)
+      .filter((key) => allowed.includes(key))
+      .reduce((obj, key) => {
+        obj[key] = data[key];
+        return obj;
+      }, {});
+
+    filterData.name = data.first_name + data.last_name;
   };
   return (
     <section class="bg-white">
@@ -194,7 +208,10 @@ const Signup = () => {
               </div>
 
               <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-                <button class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+                <button
+                  class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+                  onClick={handleSubmit}
+                >
                   Create an account
                 </button>
 
