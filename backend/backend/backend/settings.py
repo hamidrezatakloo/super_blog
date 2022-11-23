@@ -139,6 +139,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'superblogautomail@gmail.com'
 EMAIL_HOST_PASSWORD = 'uutfbsqlpmysqbjx'
 
+DOMAIN = 'localhost:3000'
+
 DJOSER = {
     'SET_PASSWORD_RETYPE':True,
     'USER_CREATE_PASSWORD_RETYPE':True,
