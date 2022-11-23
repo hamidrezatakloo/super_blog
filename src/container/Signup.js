@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
   const [data, setData] = useState({});
@@ -20,10 +21,13 @@ const Signup = () => {
 
     filterData.name = data.first_name + data.last_name;
 
-    axios
-      .post("http://127.0.0.1:8000/auth/users/", filterData)
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+    const promise = axios.post("http://127.0.0.1:8000/auth/users/", filterData);
+
+    toast.promise(promise, {
+      loading: "loading...",
+      success: "activation Link sent to your email",
+      error: "user account with this email already exists",
+    });
   };
   return (
     <section class="bg-white">

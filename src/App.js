@@ -5,10 +5,12 @@ import Layout from "./hoc/Layout";
 import Signup from "./container/Signup";
 import Login from "./container/Login";
 import Activate from "./container/Activate";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
       <Layout>
+        <Toaster />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
