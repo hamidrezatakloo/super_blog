@@ -18,6 +18,11 @@ const Signup = () => {
       }, {});
 
     filterData.name = data.first_name + data.last_name;
+
+    axios
+      .post("http://127.0.0.1:8000/auth/users/", filterData)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
   };
   return (
     <section class="bg-white">
