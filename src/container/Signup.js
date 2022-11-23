@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [data, setData] = useState({});
@@ -35,7 +36,7 @@ const Signup = () => {
           />
 
           <div class="hidden lg:relative lg:block lg:p-12">
-            <a class="block text-white" href="/">
+            <Link class="block text-white" to="/">
               <span class="sr-only">Home</span>
               <svg
                 class="h-8 sm:h-10"
@@ -48,7 +49,7 @@ const Signup = () => {
                   fill="currentColor"
                 />
               </svg>
-            </a>
+            </Link>
 
             <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
               Welcome to Squid 🦑
@@ -67,9 +68,9 @@ const Signup = () => {
         >
           <div class="max-w-xl lg:max-w-3xl">
             <div class="relative -mt-16 block lg:hidden">
-              <a
+              <Link
                 class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
-                href="/"
+                to="/"
               >
                 <span class="sr-only">Home</span>
                 <svg
@@ -83,7 +84,7 @@ const Signup = () => {
                     fill="currentColor"
                   />
                 </svg>
-              </a>
+              </Link>
 
               <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
                 Welcome to Squid 🦑
@@ -201,13 +202,13 @@ const Signup = () => {
               <div class="col-span-6">
                 <p class="text-sm text-gray-500">
                   By creating an account, you agree to our
-                  <a href="#" class="text-gray-700 underline">
+                  <Link to="#" class="text-gray-700 underline">
                     terms and conditions
-                  </a>
+                  </Link>
                   and
-                  <a href="#" class="text-gray-700 underline">
+                  <Link to="#" class="text-gray-700 underline">
                     privacy policy
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>
@@ -222,9 +223,9 @@ const Signup = () => {
 
                 <p class="mt-4 text-sm text-gray-500 sm:mt-0">
                   Already have an account?
-                  <a href="#" class="text-gray-700 underline">
+                  <Link to="/login" class="text-gray-700 underline">
                     Log in
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>
