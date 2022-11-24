@@ -1,15 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-
+import { useForm } from "react-hook-form";
 const Signup = () => {
-  const [data, setData] = useState({});
-  const handleInput = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault();
     const allowed = ["email", "password", "re_password"];
     const filterData = Object.keys(data)
@@ -29,6 +23,14 @@ const Signup = () => {
       error: "user account with this email already exists",
     });
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+
   return (
     <section class="bg-white">
       <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -100,7 +102,11 @@ const Signup = () => {
               </p>
             </div>
 
-            <form action="#" class="mt-8 grid grid-cols-6 gap-6">
+            <form
+              action="#"
+              class="mt-8 grid grid-cols-6 gap-6"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div class="col-span-6 sm:col-span-3">
                 <label
                   for="FirstName"
@@ -110,12 +116,23 @@ const Signup = () => {
                 </label>
 
                 <input
-                  onChange={handleInput}
+                  {...register("first_name", {
+                    required: "First Name is required",
+                    maxLength: {
+                      value: 50,
+                      message: "maxLength of first name is 50 character",
+                    },
+                  })}
                   type="text"
                   id="FirstName"
                   name="first_name"
                   class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
+                {errors.first_name && (
+                  <p className="py-2 text-red-500">
+                    {errors.first_name.message}
+                  </p>
+                )}
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -127,12 +144,23 @@ const Signup = () => {
                 </label>
 
                 <input
-                  onChange={handleInput}
+                  {...register("last_name", {
+                    required: "Last Name is required",
+                    maxLength: {
+                      value: 50,
+                      message: "MaxLength of first name is 50 character",
+                    },
+                  })}
                   type="text"
                   id="LastName"
                   name="last_name"
                   class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
+                {errors.last_name && (
+                  <p className="py-2 text-red-500">
+                    {errors.last_name.message}
+                  </p>
+                )}
               </div>
 
               <div class="col-span-6">
@@ -144,12 +172,22 @@ const Signup = () => {
                 </label>
 
                 <input
-                  onChange={handleInput}
+                  {...register("email", {
+                    required: "email is required",
+                    pattern: {
+                      value:
+                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: "Please enter a valid email address",
+                    },
+                  })}
                   type="email"
                   id="Email"
                   name="email"
                   class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
+                {errors.email && (
+                  <p className="py-2 text-red-500">{errors.email.message}</p>
+                )}
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -161,12 +199,21 @@ const Signup = () => {
                 </label>
 
                 <input
-                  onChange={handleInput}
+                  {...register("password", {
+                    required: "Password is require",
+                    minLength: {
+                      value: 8,
+                      message: "the password must have at least 8 character",
+                    },
+                  })}
                   type="password"
                   id="Password"
                   name="password"
                   class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
+                {errors.password && (
+                  <p className="py-2 text-red-500">{errors.password.message}</p>
+                )}
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -178,18 +225,28 @@ const Signup = () => {
                 </label>
 
                 <input
-                  onChange={handleInput}
+                  {...register("re_password", {
+                    validate: (value) => {
+                      if (watch("password") !== value)
+                        return "Your password do not match";
+                    },
+                  })}
                   type="password"
                   id="PasswordConfirmation"
                   name="re_password"
                   class="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
+                {errors.re_password && (
+                  <p className="py-2 text-red-500">
+                    {errors.re_password.message}
+                  </p>
+                )}
               </div>
 
               <div class="col-span-6">
                 <label for="MarketingAccept" class="flex gap-4">
                   <input
-                    onChange={handleInput}
+                    {...register("marketing_accept")}
                     type="checkbox"
                     id="MarketingAccept"
                     name="marketing_accept"
@@ -220,7 +277,7 @@ const Signup = () => {
               <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
                 <button
                   class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
-                  onClick={handleSubmit}
+                  type="submit"
                 >
                   Create an account
                 </button>
