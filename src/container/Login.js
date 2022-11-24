@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 const Login = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    console.log(data);
+  };
   return (
     <section class="relative flex flex-wrap lg:h-screen lg:items-center">
       <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
@@ -13,7 +18,11 @@ const Login = () => {
           </p>
         </div>
 
-        <form action="" class="mx-auto mt-8 mb-0 max-w-md space-y-4">
+        <form
+          action=""
+          class="mx-auto mt-8 mb-0 max-w-md space-y-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div>
             <label for="email" class="sr-only">
               Email
@@ -21,6 +30,8 @@ const Login = () => {
 
             <div class="relative">
               <input
+                {...register("email")}
+                name="email"
                 type="email"
                 class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter email"
@@ -51,6 +62,8 @@ const Login = () => {
             </label>
             <div class="relative">
               <input
+                {...register("password")}
+                name="password"
                 type="password"
                 class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
                 placeholder="Enter password"
