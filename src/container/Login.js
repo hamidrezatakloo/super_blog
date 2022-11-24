@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, e) => {
     e.preventDefault();
-    console.log(data);
+    axios
+      .post("http://127.0.0.1:8000/auth/jwt/create/", data)
+      .then((response) => console.log(response))
+      .catch((error) => toast.error(error.response.data.detail));
   };
   return (
     <section class="relative flex flex-wrap lg:h-screen lg:items-center">
