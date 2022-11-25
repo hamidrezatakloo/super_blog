@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 const Layout = ({ children }) => {
   const [showNav, setShowNav] = useState(true);
   let location = useLocation();
+  //monitor current path if they are login or signup
   useEffect(() => {
     if (location.pathname === "/login" || location.pathname === "/signup")
       setShowNav(false);
     else setShowNav(true);
   }, [location]);
+
   return (
     <div className="flex flex-col h-screen">
       {showNav && <Navbar />}
