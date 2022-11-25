@@ -2,16 +2,31 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { SetToken } from "../slices/AuthenticationSlice";
-import { useDispatch } from "react-redux";
+import { SetToken, SetUser } from "../slices/AuthenticationSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.authentication.token);
   const { register, handleSubmit } = useForm();
+  const ConfigureUser = () => {
+    axios
+      .get("http://127.0.0.1:8000/auth/users/me", {
+        headers: {
+          Authorization: "JWT " + token,
+        },
+      })
+      .then((response) => dispatch(SetUser(response.data)))
+      .catch((error) => console.log(error));
+  };
+
   const onSubmit = (data, e) => {
     e.preventDefault();
     axios
       .post("http://127.0.0.1:8000/auth/jwt/create/", data)
-      .then((response) => dispatch(SetToken(response.data.access)))
+      .then((response) => {
+        dispatch(SetToken(response.data.access));
+        ConfigureUser();
+      })
       .catch((error) => toast.error(error.response.data.detail));
   };
   return (
