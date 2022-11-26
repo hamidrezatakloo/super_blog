@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { SetToken, SetUser } from "../slices/AuthenticationSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.authentication.token);
   const { register, handleSubmit } = useForm();
-  const ConfigureUser = () => {
+
+  const ConfigureUser = (token) => {
     axios
       .get("http://127.0.0.1:8000/auth/users/me", {
         headers: {
@@ -25,7 +25,7 @@ const Login = () => {
       .post("http://127.0.0.1:8000/auth/jwt/create/", data)
       .then((response) => {
         dispatch(SetToken(response.data.access));
-        ConfigureUser();
+        ConfigureUser(response.data.access);
       })
       .catch((error) => toast.error(error.response.data.detail));
   };
