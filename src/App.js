@@ -7,9 +7,13 @@ import Login from "./container/Login";
 import Activate from "./container/Activate";
 import { Toaster } from "react-hot-toast";
 import Dashboard from "./container/Dashboard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { SetToken } from "./slices/AuthenticationSlice";
 function App() {
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.authentication.token);
+  if (!token && localStorage.hasOwnProperty("token"))
+    dispatch(SetToken(localStorage.getItem("token")));
   return (
     <BrowserRouter>
       <Layout>
