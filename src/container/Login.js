@@ -17,6 +17,8 @@ const Login = () => {
       })
       .then((response) => dispatch(SetUser(response.data)))
       .catch((error) => console.log(error));
+
+    localStorage.setItem("token", token);
   };
 
   const onSubmit = (data, e) => {
