@@ -6,6 +6,7 @@ import Signup from "./container/Signup";
 import Login from "./container/Login";
 import Activate from "./container/Activate";
 import { Toaster } from "react-hot-toast";
+import Dashboard from "./container/Dashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/activate/:uid/:token" element={<Activate />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </Layout>
     </BrowserRouter>
