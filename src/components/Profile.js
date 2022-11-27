@@ -1,7 +1,7 @@
 const Profile = () => {
   return (
     <div>
-      <div>
+      <div className="flex">
         <img src="./profile.jpg" alt="profile" className="w-[350px] rounded" />
         <div>
           <span>Gabriela Richardson</span>
