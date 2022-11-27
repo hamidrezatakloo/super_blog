@@ -10,6 +10,7 @@ import Dashboard from "./container/Dashboard";
 import { useSelector, useDispatch } from "react-redux";
 import { SetToken } from "./slices/AuthenticationSlice";
 import Profile from "./components/Profile";
+import NewPost from "./components/NewPost";
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.authentication.token);
@@ -36,6 +37,7 @@ function App() {
             element={token ? <Dashboard /> : <Navigate to="/login" />}
           >
             <Route path="profile" element={<Profile />}></Route>
+            <Route path="newPost" element={<NewPost />}></Route>
           </Route>
         </Routes>
       </Layout>
