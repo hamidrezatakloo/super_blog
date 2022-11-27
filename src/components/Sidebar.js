@@ -16,7 +16,7 @@ const Sidebar = () => {
         <div className="flex gap-2 items-center my-2 text-slate-500">
           <svg
             viewBox="0 0 64 64"
-            className="w-8 h-8 opacity-75"
+            className="w-8 h-8 opacity-75 stroke-slate-500"
             version="1.1"
             xmlSpace="preserve"
             xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const Sidebar = () => {
         <div className="flex gap-2 items-center my-2 text-slate-500">
           <svg
             viewBox="0 0 64 64"
-            className="w-8 h-8 opacity-75"
+            className="w-8 h-8 opacity-75 stroke-slate-500"
             version="1.1"
             xmlSpace="preserve"
             xmlns="http://www.w3.org/2000/svg"
