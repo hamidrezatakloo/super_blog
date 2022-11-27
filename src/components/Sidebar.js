@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <section className="col-span-2 bg-gray-100 flex justify-center">
@@ -13,7 +14,10 @@ const Sidebar = () => {
             fill="currentColor"
           />
         </svg>
-        <div className="flex gap-2 items-center my-2 text-slate-500">
+        <Link
+          to={"profile"}
+          className="flex gap-2 items-center my-2 text-slate-500"
+        >
           <svg
             viewBox="0 0 64 64"
             className="w-8 h-8 opacity-75 stroke-slate-500"
@@ -65,8 +69,11 @@ const Sidebar = () => {
             <g id="_x30_1_chatting" />
           </svg>
           <span>Profile</span>
-        </div>
-        <div className="flex gap-2 items-center my-2 text-slate-500">
+        </Link>
+        <Link
+          to={"newPost"}
+          className="flex gap-2 items-center my-2 text-slate-500"
+        >
           <svg
             viewBox="0 0 64 64"
             className="w-8 h-8 opacity-75 stroke-slate-500"
@@ -113,7 +120,7 @@ const Sidebar = () => {
             <g id="_x30_1_chatting" />
           </svg>
           <span>New Post</span>
-        </div>
+        </Link>
       </div>
     </section>
   );
