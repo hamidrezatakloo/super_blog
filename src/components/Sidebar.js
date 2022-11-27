@@ -1,6 +1,6 @@
 const Sidebar = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <div className="flex gap-2 items-center">
         <svg
           viewBox="0 0 64 64"
