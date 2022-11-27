@@ -2,7 +2,7 @@ const Profile = () => {
   return (
     <div>
       <div>
-        <img src="" alt="" />
+        <img src="./profile.jpg" alt="profile" className="w-[350px] rounded" />
         <div>
           <span>Gabriela Richardson</span>
           <span>
