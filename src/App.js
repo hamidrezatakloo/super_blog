@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import Dashboard from "./container/Dashboard";
 import { useSelector, useDispatch } from "react-redux";
 import { SetToken } from "./slices/AuthenticationSlice";
+import Profile from "./components/Profile";
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.authentication.token);
@@ -33,7 +34,9 @@ function App() {
           <Route
             path="/dashboard"
             element={token ? <Dashboard /> : <Navigate to="/login" />}
-          ></Route>
+          >
+            <Route index element={<Profile />}></Route>
+          </Route>
         </Routes>
       </Layout>
     </BrowserRouter>
