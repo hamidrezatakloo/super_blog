@@ -1,9 +1,9 @@
 const Sidebar = () => {
   return (
     <section className="col-span-2 bg-gray-100 flex justify-center">
-      <div className="flex flex-col gap-4 ">
+      <div className="flex flex-col gap-4">
         <svg
-          className="h-8 text-teal-600"
+          className="h-8 text-teal-600 my-10"
           viewBox="0 0 28 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
