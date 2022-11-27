@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     if (
       location.pathname === "/login" ||
       location.pathname === "/signup" ||
-      location.pathname === "/dashboard"
+      /dashboard\/.*|dashboard/.test(location.pathname)
     )
       setShowNav(false);
     else setShowNav(true);
