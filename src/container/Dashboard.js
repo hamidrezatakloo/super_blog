@@ -1,10 +1,10 @@
 import Sidebar from "../components/Sidebar";
-import Profile from "../components/Profile";
+import { Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="grid grid-cols-12 h-full">
       <Sidebar />
-      <Profile />
+      <Outlet />
     </div>
   );
 };
