@@ -3,7 +3,7 @@ const Profile = () => {
     <div>
       <div className="flex">
         <img src="./profile.jpg" alt="profile" className="w-[350px] rounded" />
-        <div>
+        <div className="flex flex-col">
           <span>Gabriela Richardson</span>
           <span>
             email:<span>Richardson@gmail.com</span>
