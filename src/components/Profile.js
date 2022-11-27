@@ -1,6 +1,6 @@
 const Profile = () => {
   return (
-    <div className="col-span-10">
+    <div className="col-span-10 p-10">
       <div className="flex">
         <img src="./profile.jpg" alt="profile" className="w-[350px] rounded" />
         <div className="flex flex-col p-6 gap-4">
