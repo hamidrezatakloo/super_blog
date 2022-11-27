@@ -7,8 +7,9 @@ const Profile = () => {
           <span className="text-4xl font-medium text-slate-800">
             Gabriela Richardson
           </span>
-          <span>
-            email:<span>Richardson@gmail.com</span>
+          <span className="text-slate-400 text-lg">
+            email:
+            <span className="text-slate-800 text-md">Richardson@gmail.com</span>
           </span>
         </div>
       </div>
