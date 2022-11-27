@@ -13,7 +13,7 @@ const Sidebar = () => {
             fill="currentColor"
           />
         </svg>
-        <div className="flex gap-2 items-center my-2">
+        <div className="flex gap-2 items-center my-2 text-slate-500">
           <svg
             viewBox="0 0 64 64"
             className="w-8 h-8 opacity-75"
@@ -66,7 +66,7 @@ const Sidebar = () => {
           </svg>
           <span>Profile</span>
         </div>
-        <div className="flex gap-2 items-center my-2">
+        <div className="flex gap-2 items-center my-2 text-slate-500">
           <svg
             viewBox="0 0 64 64"
             className="w-8 h-8 opacity-75"
