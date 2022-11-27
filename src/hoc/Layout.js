@@ -8,7 +8,11 @@ const Layout = ({ children }) => {
   const token = useSelector((state) => state.authentication.token);
   //monitor current path if they are login or signup
   useEffect(() => {
-    if (location.pathname === "/login" || location.pathname === "/signup")
+    if (
+      location.pathname === "/login" ||
+      location.pathname === "/signup" ||
+      location.pathname === "/dashboard"
+    )
       setShowNav(false);
     else setShowNav(true);
   }, [location]);
