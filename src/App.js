@@ -35,7 +35,7 @@ function App() {
             path="/dashboard"
             element={token ? <Dashboard /> : <Navigate to="/login" />}
           >
-            <Route index element={<Profile />}></Route>
+            <Route path="profile" element={<Profile />}></Route>
           </Route>
         </Routes>
       </Layout>
