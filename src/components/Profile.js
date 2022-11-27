@@ -4,7 +4,9 @@ const Profile = () => {
       <div className="flex">
         <img src="./profile.jpg" alt="profile" className="w-[350px] rounded" />
         <div className="flex flex-col">
-          <span>Gabriela Richardson</span>
+          <span className="text-4xl font-medium text-slate-800">
+            Gabriela Richardson
+          </span>
           <span>
             email:<span>Richardson@gmail.com</span>
           </span>
