@@ -13,6 +13,28 @@ const Profile = () => {
           </span>
         </div>
       </div>
+      <div className="flex flex-col lg:flex-row gap-y-4 flex-wrap  my-8">
+        <span className="text-slate-500 text-lg w-6/12">
+          firstName:&nbsp;
+          <span className="text-slate-800 text-md"></span>
+        </span>
+        <span className="text-slate-500 text-lg w-6/12">
+          LastName:&nbsp;
+          <span className="text-slate-800 text-md"></span>
+        </span>
+        <span className="text-slate-500 text-lg w-6/12">
+          PhoneNumber:&nbsp;
+          <span className="text-slate-800 text-md"></span>
+        </span>
+        <span className="text-slate-500 text-lg w-6/12">
+          DateOfBirth:&nbsp;
+          <span className="text-slate-800 text-md"></span>
+        </span>
+        <span className="text-slate-500 text-lg">
+          About:&nbsp;
+          <span className="text-slate-800 text-md"></span>
+        </span>
+      </div>
     </div>
   );
 };
