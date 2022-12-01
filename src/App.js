@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { SetToken } from "./slices/AuthenticationSlice";
 import Profile from "./components/Profile";
 import NewPost from "./components/NewPost";
+import EditProfile from "./components/Editprofile";
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.authentication.token);
@@ -38,6 +39,7 @@ function App() {
           >
             <Route path="profile" element={<Profile />}></Route>
             <Route path="newPost" element={<NewPost />}></Route>
+            <Route path="edit" element={<EditProfile />}></Route>
           </Route>
         </Routes>
       </Layout>
