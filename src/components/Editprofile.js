@@ -1,21 +1,51 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 const EditProfile = () => {
+  const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data, e) => {
     e.preventDefault();
     console.log(data);
   };
+
+  const handleImage = (e) => {
+    if (!e.target.files || e.target.files.length === 0)
+      setSelectedFile(undefined);
+    else setSelectedFile(e.target.files[0]);
+  };
+
+  // create a preview as a side effect, whenever selected file is changed
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
   return (
     <form
       className="col-span-10 flex flex-col gap-16 p-10"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex flex-col md:flex-row items-center gap-10">
-        <img src="/profile.png" accept="image/*" className="w-[200px]" />
+        <img
+          src={selectedFile ? preview : "/profile.png"}
+          accept="image/*"
+          className="w-[200px]"
+        />
         <label
           htmlFor="avatar"
           className="w-[200px] h-full border-2 border-gray-200 flex items-center justify-center text-gray-700 text-sm font-medium hover:bg-gray-100 cursor-pointer"
@@ -27,6 +57,7 @@ const EditProfile = () => {
           id="avatar"
           name="avatar"
           type="file"
+          onChangeCapture={handleImage}
           className="hidden"
         />
       </div>
