@@ -52,6 +52,9 @@ const EditProfile = () => {
             name="first_name"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
           />
+          {errors.first_name && (
+            <p className="py-2 text-red-500">{errors.first_name.message}</p>
+          )}
         </div>
 
         <div className="w-8/12 md:w-4/12">
@@ -75,6 +78,9 @@ const EditProfile = () => {
             name="last_name"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
           />
+          {errors.last_name && (
+            <p className="py-2 text-red-500">{errors.last_name.message}</p>
+          )}
         </div>
         <div className="w-8/12 md:w-4/12">
           <label for="about" class="block text-xs font-medium text-gray-700">
@@ -93,6 +99,9 @@ const EditProfile = () => {
             name="about"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
           />
+          {errors.about && (
+            <p className="py-2 text-red-500">{errors.about.message}</p>
+          )}
         </div>
         <div className="w-8/12 md:w-4/12">
           <label
@@ -114,6 +123,9 @@ const EditProfile = () => {
             name="phone_number"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
           />
+          {errors.phone_number && (
+            <p className="py-2 text-red-500">{errors.phone_number.message}</p>
+          )}
         </div>
 
         <div className="w-8/12 md:w-4/12">
