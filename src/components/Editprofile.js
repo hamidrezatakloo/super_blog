@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { SetUser } from "../slices/AuthenticationSlice";
 import axios from "axios";
 const EditProfile = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
   const [date, setDate] = useState();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -34,6 +37,7 @@ const EditProfile = () => {
         },
       })
       .then((response) => {
+        dispatch(SetUser(response.data));
         console.log(response);
       })
       .catch((error) => console.log(error));
