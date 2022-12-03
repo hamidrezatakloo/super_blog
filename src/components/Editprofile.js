@@ -12,6 +12,8 @@ const EditProfile = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
+    data["avatar"] = selectedFile;
+    data["date_of_birth"] = date;
     console.log(data);
   };
 
