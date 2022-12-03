@@ -15,11 +15,11 @@ const Profile = () => {
         />
         <div className="flex flex-col p-6 gap-4">
           <span className="text-4xl font-medium text-slate-800">
-            Gabriela Richardson
+            {user.first_name}&nbsp;{user.last_name}
           </span>
           <span className="text-slate-500 text-lg">
             Email:&nbsp;
-            <span className="text-slate-800 text-md">Richardson@gmail.com</span>
+            <span className="text-slate-800 text-md">{user.email}</span>
           </span>
         </div>
       </div>
@@ -34,7 +34,7 @@ const Profile = () => {
         </span>
         <span className="text-slate-500 text-lg w-6/12">
           PhoneNumber:&nbsp;
-          <span className="text-slate-800 text-md">{user.Phone_number}</span>
+          <span className="text-slate-800 text-md">{user.phone_number}</span>
         </span>
         <span className="text-slate-500 text-lg w-6/12">
           DateOfBirth:&nbsp;
