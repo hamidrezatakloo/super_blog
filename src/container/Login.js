@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { SetToken, SetUser } from "../slices/AuthenticationSlice";
+import { SetToken, SetUser, SetVerify } from "../slices/AuthenticationSlice";
 import { useDispatch } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ const Login = () => {
       .post("http://127.0.0.1:8000/auth/jwt/create/", data)
       .then((response) => {
         dispatch(SetToken(response.data.access));
+        dispatch(SetVerify(true));
         localStorage.setItem("token", response.data.access);
         ConfigureUser(response.data.access);
       })
