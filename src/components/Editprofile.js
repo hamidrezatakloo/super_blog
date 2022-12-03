@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 const EditProfile = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
-
+  const [date, setDate] = useState();
   const {
     register,
     handleSubmit,
@@ -13,6 +13,10 @@ const EditProfile = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     console.log(data);
+  };
+
+  const handleDate = (e) => {
+    setDate(e.target.value);
   };
 
   const handleImage = (e) => {
@@ -168,7 +172,7 @@ const EditProfile = () => {
           </label>
 
           <input
-            {...register("date_of_birth")}
+            onChange={handleDate}
             type="date"
             id="date_of_birth"
             name="date_of_birth"
