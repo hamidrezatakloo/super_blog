@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { SetUser } from "../slices/AuthenticationSlice";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 const EditProfile = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -30,7 +31,7 @@ const EditProfile = () => {
     form_data.append("phone_number", data.phone_number);
 
     //update user with sending patch request
-    axios
+    const promise = axios
       .patch("http://127.0.0.1:8000/auth/users/me/", form_data, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -42,6 +43,12 @@ const EditProfile = () => {
         console.log(response);
       })
       .catch((error) => console.log(error));
+
+    toast.promise(promise, {
+      loading: "loading",
+      success: "profile updated successfully",
+      error: "failed to update profile",
+    });
   };
 
   const handleDate = (e) => {
