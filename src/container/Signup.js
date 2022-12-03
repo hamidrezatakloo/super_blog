@@ -5,7 +5,13 @@ import { useForm } from "react-hook-form";
 const Signup = () => {
   const onSubmit = (data, e) => {
     e.preventDefault();
-    const allowed = ["email", "password", "re_password"];
+    const allowed = [
+      "email",
+      "password",
+      "re_password",
+      "first_name",
+      "last_name",
+    ];
     const filterData = Object.keys(data)
       .filter((key) => allowed.includes(key))
       .reduce((obj, key) => {
@@ -13,14 +19,12 @@ const Signup = () => {
         return obj;
       }, {});
 
-    filterData.name = data.first_name + data.last_name;
-
     const promise = axios.post("http://127.0.0.1:8000/auth/users/", filterData);
 
     toast.promise(promise, {
       loading: "loading...",
       success: "activation Link sent to your email",
-      error: "user account with this email already exists",
+      error: (err) => err.response.data[0],
     });
   };
 
