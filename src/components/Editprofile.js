@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 const EditProfile = () => {
   const [selectedFile, setSelectedFile] = useState();
   const [preview, setPreview] = useState();
@@ -14,7 +15,28 @@ const EditProfile = () => {
     e.preventDefault();
     data["avatar"] = selectedFile;
     data["date_of_birth"] = date;
-    console.log(data);
+
+    //change data to formData object for sending image file to server
+    let form_data = new FormData();
+    if (selectedFile) form_data.append("avatar", selectedFile);
+    if (date) form_data.append("date_of_birth", date);
+    form_data.append("first_name", data.first_name);
+    form_data.append("last_name", data.last_name);
+    form_data.append("about", data.about);
+    form_data.append("phone_number", data.phone_number);
+
+    //update user with sending patch request
+    axios
+      .patch("http://127.0.0.1:8000/auth/users/me/", form_data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: "JWT " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleDate = (e) => {
