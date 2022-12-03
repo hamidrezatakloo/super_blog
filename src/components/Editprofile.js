@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SetUser } from "../slices/AuthenticationSlice";
 import axios from "axios";
 const EditProfile = () => {
@@ -8,6 +8,7 @@ const EditProfile = () => {
   const [preview, setPreview] = useState();
   const [date, setDate] = useState();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.authentication.user);
   const {
     register,
     handleSubmit,
@@ -74,7 +75,7 @@ const EditProfile = () => {
     >
       <div className="flex flex-col md:flex-row items-center gap-10">
         <img
-          src={selectedFile ? preview : "/profile.png"}
+          src={selectedFile ? preview : user.avatar}
           accept="image/*"
           className="w-[200px]"
         />
@@ -111,6 +112,7 @@ const EditProfile = () => {
               },
             })}
             type="text"
+            defaultValue={user.first_name}
             id="first_name"
             name="first_name"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
@@ -137,6 +139,7 @@ const EditProfile = () => {
               },
             })}
             type="text"
+            defaultValue={user.last_name}
             id="last_name"
             name="last_name"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
@@ -158,6 +161,7 @@ const EditProfile = () => {
               },
             })}
             type="text"
+            defaultValue={user.about}
             id="about"
             name="about"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
@@ -182,6 +186,7 @@ const EditProfile = () => {
               },
             })}
             type="tel"
+            defaultValue={user.phone_number}
             id="phone_number"
             name="phone_number"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
@@ -202,6 +207,7 @@ const EditProfile = () => {
           <input
             onChange={handleDate}
             type="date"
+            defaultValue={user.date_of_birth}
             id="date_of_birth"
             name="date_of_birth"
             className="h-8 mt-1 w-full rounded border-2 border-gray-200 shadow-sm sm:text-sm outline-none focus:border-cyan-500"
