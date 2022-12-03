@@ -15,10 +15,12 @@ const Login = () => {
           Authorization: "JWT " + token,
         },
       })
-      .then((response) => dispatch(SetUser(response.data)))
+      .then((response) => {
+        dispatch(SetUser(response.data));
+        // save user object in local storage
+        localStorage.setItem("user", JSON.stringify(response.data));
+      })
       .catch((error) => console.log(error));
-
-    localStorage.setItem("token", token);
   };
 
   const onSubmit = (data, e) => {
@@ -27,6 +29,7 @@ const Login = () => {
       .post("http://127.0.0.1:8000/auth/jwt/create/", data)
       .then((response) => {
         dispatch(SetToken(response.data.access));
+        localStorage.setItem("token", response.data.access);
         ConfigureUser(response.data.access);
       })
       .catch((error) => toast.error(error.response.data.detail));
