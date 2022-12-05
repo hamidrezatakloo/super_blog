@@ -95,9 +95,9 @@ const NewPost = () => {
 
         <button
           type="submit"
-          className="inline-block rounded border border-indigo-600 bg-indigo-600 
+          className="inline-block rounded border border-green-600 bg-green-600 
           px-12 py-3 my-4 text-sm font-medium text-white hover:bg-transparent 
-          hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 self-start"
+          hover:text-green-600 focus:outline-none focus:ring active:text-green-500 self-start"
         >
           Create new Post
         </button>
