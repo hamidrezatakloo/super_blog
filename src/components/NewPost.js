@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-
+import { useEffect, useState } from "react";
 const NewPost = () => {
   const {
     register,
@@ -8,15 +8,29 @@ const NewPost = () => {
     watch,
   } = useForm();
 
+  const [postImage, setPostImage] = useState("");
   const onSubmit = (data, e) => {
     e.preventDefault();
     console.log(data);
+    const url = URL.createObjectURL(data.image[0]);
+    setPostImage(url);
   };
+
+  useEffect(() => {
+    const subscription = watch((value, { name, type }) => {
+      const selectedImage = value.image[0];
+      if (selectedImage) {
+        const url = URL.createObjectURL(selectedImage);
+        setPostImage(url);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   return (
     <section className="col-span-10 p-10">
       <div className="my-8 p-6 shadow">
-        <img src="" className="rounded" />
+        <img src={postImage} className="rounded" />
         <h1 className="font-bold text-2xl my-6">{watch("title")}</h1>
         <p className="my-4">{watch("desc")}</p>
       </div>
