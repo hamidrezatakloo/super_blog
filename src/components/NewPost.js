@@ -8,7 +8,8 @@ const NewPost = () => {
     watch,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    e.preventDefault();
     console.log(data);
   };
 
