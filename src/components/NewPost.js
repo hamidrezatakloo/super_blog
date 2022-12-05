@@ -76,7 +76,7 @@ const NewPost = () => {
           id="title"
           type="text"
           placeholder="Write your title here..."
-          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
+          className="block outline-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
           border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
         />
         {errors.title && (
@@ -100,7 +100,7 @@ const NewPost = () => {
           name="desc"
           id="message"
           rows="4"
-          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
+          className="block outline-none p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
           border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Write your description here..."
         ></textarea>
