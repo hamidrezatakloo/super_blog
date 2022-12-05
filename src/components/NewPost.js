@@ -5,6 +5,7 @@ const NewPost = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -13,6 +14,12 @@ const NewPost = () => {
 
   return (
     <section className="col-span-10 p-10">
+      <div className="my-8 p-6 shadow">
+        <img src="" className="rounded" />
+        <h1 className="font-bold text-2xl my-6">{watch("title")}</h1>
+        <p className="my-4">{watch("desc")}</p>
+      </div>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <label
           htmlFor="image"
