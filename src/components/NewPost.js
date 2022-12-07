@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 const NewPost = () => {
   const {
@@ -28,8 +29,8 @@ const NewPost = () => {
           Authorization: "JWT " + localStorage.getItem("token"),
         },
       })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then((response) => toast.success("post published successfully"))
+      .catch((error) => toast.error("An error occurred"));
   };
 
   useEffect(() => {
