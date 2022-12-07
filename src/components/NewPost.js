@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
+import axios from "axios";
 const NewPost = () => {
   const {
     register,
@@ -14,6 +15,21 @@ const NewPost = () => {
     console.log(data);
     const url = URL.createObjectURL(data.image[0]);
     setPostImage(url);
+
+    const form_data = new FormData();
+    form_data.append("image", data.image[0]);
+    form_data.append("title", data.title);
+    form_data.append("description", data.desc);
+
+    axios
+      .post("http://127.0.0.1:8000/posts/new", form_data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: "JWT " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
