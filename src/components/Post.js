@@ -1,4 +1,4 @@
-const Post = ({ src, title, desc, col }) => {
+const Post = ({ src, title, desc, author, create_date, col }) => {
   return (
     <div
       className={`${
@@ -22,6 +22,10 @@ const Post = ({ src, title, desc, col }) => {
             {desc}
           </p>
         </div>
+      </div>
+      <div className="text-green-700 flex gap-x-2 pl-2 my-2 text-sm mt-8">
+        <p>{create_date}</p>
+        <p>{author}</p>
       </div>
     </div>
   );
