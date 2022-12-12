@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import NavbarMenu from "./NavbarMenu";
 const Navbar = () => {
+  const [show, setShow] = useState(false);
   return (
     <header aria-label="Site Header" className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -23,23 +26,13 @@ const Navbar = () => {
           <div className="md:flex md:items-center md:gap-12">
             <nav aria-label="Site Nav" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
-                <li className="text-gray-500 transition hover:text-gray-500/75">
-                  <Link to="/about">About</Link>
-                </li>
-
-                <li className="text-gray-500 transition hover:text-gray-500/75">
-                  <Link to="/bookmark">Bookmarks</Link>
-                </li>
-
-                <li className="text-gray-500 transition hover:text-gray-500/75">
-                  <Link to="/blog">Blog</Link>
-                </li>
+                <NavbarMenu />
               </ul>
             </nav>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
+            <div className="flex gap-4">
               <Link
                 to="/login"
                 className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
@@ -47,7 +40,7 @@ const Navbar = () => {
                 Login
               </Link>
 
-              <div className="hidden sm:flex">
+              <div className="flex">
                 <Link
                   to="/signup"
                   className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
@@ -58,7 +51,10 @@ const Navbar = () => {
             </div>
 
             <div className="block md:hidden">
-              <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+              <button
+                className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                onClick={() => setShow(true)}
+              >
                 <svg
                   className="h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +71,33 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
+            {show && (
+              <div className="w-[200px] h-full absolute top-0 right-0 bg-gray-100">
+                <button
+                  className="rounded bg-gray-100 p-2 m-2 text-gray-600 transition hover:text-gray-600/75"
+                  onClick={() => setShow(false)}
+                >
+                  <svg
+                    className="w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                    />{" "}
+                  </svg>
+                </button>
+
+                <ul className="flex flex-col items-center gap-6 text-sm">
+                  <NavbarMenu />
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
