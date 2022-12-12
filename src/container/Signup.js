@@ -24,7 +24,10 @@ const Signup = () => {
     toast.promise(promise, {
       loading: "loading...",
       success: "activation Link sent to your email",
-      error: (err) => err.response.data[0],
+      error: (err) =>
+        err.response.data.email
+          ? err.response.data.email[0]
+          : "something unexpected happened",
     });
   };
 
