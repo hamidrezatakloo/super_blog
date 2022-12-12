@@ -6,20 +6,22 @@ const Profile = () => {
   console.log(user);
 
   return (
-    <div className="col-span-10 p-10">
-      <div className="flex">
+    <div className="flex-1 p-5 md:p-10">
+      <div className="flex flex-col items-center lg:flex-row">
         <img
           src={user.avatar ? user.avatar : "/profile.png"}
           alt="profile"
-          className="w-[350px] rounded"
+          className="w-60 rounded"
         />
-        <div className="flex flex-col p-6 gap-4">
+        <div className="flex flex-col mt-2 lg:mt-0 lg:p-6 gap-4">
           <span className="text-4xl font-medium text-slate-800">
             {user.first_name}&nbsp;{user.last_name}
           </span>
           <span className="text-slate-500 text-lg">
             Email:&nbsp;
-            <span className="text-slate-800 text-md">{user.email}</span>
+            <span className="text-slate-800 text-md break-all">
+              {user.email}
+            </span>
           </span>
         </div>
       </div>
