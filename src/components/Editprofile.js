@@ -77,7 +77,7 @@ const EditProfile = () => {
 
   return (
     <form
-      className="col-span-10 flex flex-col gap-16 p-10"
+      className="flex-1 flex flex-col gap-16 p-5 md:p-10"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex flex-col md:flex-row items-center gap-10">

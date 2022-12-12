@@ -45,7 +45,7 @@ const NewPost = () => {
   }, [watch]);
 
   return (
-    <section className="col-span-10 p-10">
+    <section className="flex-1 p-5 md:p-10">
       <div className="my-8 p-6 shadow">
         <img src={postImage} className="rounded" />
         <h1 className="font-bold text-2xl my-6">{watch("title")}</h1>
