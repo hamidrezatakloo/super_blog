@@ -1,7 +1,37 @@
-import data from "../data.json";
 import Post from "../components/Post";
 import Pagination from "../components/pagination";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
+import { SetPageNumbers } from "../slices/PaginationSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Blog = () => {
+  const [data, setData] = useState([]);
+  const [mainData, setMainData] = useState([]);
+  const dispatch = useDispatch();
+  const activePage = useSelector((state) => state.pagination.activePage);
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/posts/list?page_size=4")
+      .then((response) => {
+        setMainData(response.data.results);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/posts/list?p=${activePage}`)
+      .then((response) => {
+        const pageNumbers = Math.ceil(response.data.count / 6);
+        dispatch(SetPageNumbers(pageNumbers));
+        setData(response.data.results);
+        console.log(response.data.results);
+      })
+      .catch((error) => console.log(error));
+  }, [activePage]);
+
   return (
     <section className="p-2 sm:p-8">
       <div className="border-y-2 border-black max-w-screen-xl 2xl:max-w-screen-2xl mx-auto pb-[50px]">
@@ -9,26 +39,26 @@ const Blog = () => {
         <div className="grid grid-cols-12">
           <div className="col-span-12 xl:col-span-6 flex justify-center flex-col xl:mr-16">
             <img
-              src="./webpack.png"
+              src={mainData[0] && mainData[0].image}
               alt="hotArticle"
               className="rounded object-contain"
             />
             <h2 className="font-medium text-2xl my-4">
-              Why we need webpack in frontend development
+              {mainData[0] && mainData[0].title}
             </h2>
             <p className="text-gray-500 font-medium">
-              Webpack is a tool that lets you compile JavaScript modules. It is
-              also known as a module bundler. Given a large number of files, it
-              generates a single file (or a few files) that run your app.
+              {mainData[0] && mainData[0].description}
             </p>
           </div>
           <div className="col-span-6 hidden xl:block">
-            {data.slice(0, 3).map((post, index) => (
+            {mainData.slice(1, 4).map((post, index) => (
               <Post
-                src={post.src}
+                src={post.image}
                 key={index}
                 title={post.title}
-                desc={post.desc}
+                desc={post.description}
+                author={post.author}
+                create_date={post.create_date}
               />
             ))}
           </div>
@@ -40,10 +70,12 @@ const Blog = () => {
           {data.map((post, index) => (
             <Post
               col
-              src={post.src}
+              src={post.image}
               key={index}
               title={post.title}
-              desc={post.desc}
+              desc={post.description}
+              author={post.author}
+              create_date={post.create_date}
             />
           ))}
         </div>
