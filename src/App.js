@@ -14,6 +14,7 @@ import NewPost from "./components/NewPost";
 import EditProfile from "./components/Editprofile";
 import { useEffect } from "react";
 import axios from "axios";
+import NotFound from "./container/NotFound";
 function App() {
   const dispatch = useDispatch();
   const verify = useSelector((state) => state.authentication.verify);
@@ -61,6 +62,7 @@ function App() {
             <Route path="newPost" element={<NewPost />}></Route>
             <Route path="edit" element={<EditProfile />}></Route>
           </Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Layout>
     </BrowserRouter>
