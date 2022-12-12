@@ -25,6 +25,10 @@ class UserAccount(AbstractBaseUser,PermissionsMixin):
     date_of_birth = models.DateField(blank=True,null=True)
     avatar = models.ImageField(upload_to='profile-pics',blank=True,null=True)
 
+    @property
+    def full_name(self):
+        return "%s %s" %(self.first_name,self.last_name)
+
     objects=UserManager()
 
     USERNAME_FIELD = 'email'
