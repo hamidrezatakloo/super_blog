@@ -43,7 +43,7 @@ function App() {
       <Layout>
         <Toaster />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/super_blog" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
           <Route
             path="/login"
