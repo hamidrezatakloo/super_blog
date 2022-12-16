@@ -143,7 +143,7 @@ const Login = () => {
 
       <img
         alt="Welcome"
-        src="login.webp"
+        src="super_blog/login.webp"
         className="w-full lg:w-1/2 object-cover"
       />
     </section>

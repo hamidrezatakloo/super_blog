@@ -9,7 +9,7 @@ const Profile = () => {
     <div className="flex-1 p-5 md:p-10">
       <div className="flex flex-col items-center lg:flex-row">
         <img
-          src={user.avatar ? user.avatar : "/profile.png"}
+          src={user.avatar ? user.avatar : "super_blog/profile.png"}
           alt="profile"
           className="w-60 rounded"
         />
