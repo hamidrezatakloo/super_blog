@@ -19,7 +19,7 @@ const Signup = () => {
         return obj;
       }, {});
 
-    const promise = axios.post("http://127.0.0.1:8000/auth/users/", filterData);
+    const promise = axios.post("auth/users/", filterData);
 
     toast.promise(promise, {
       loading: "loading...",

@@ -13,7 +13,7 @@ const Blog = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/posts/list?page_size=4")
+      .get("posts/list?page_size=4")
       .then((response) => {
         setMainData(response.data.results);
       })
@@ -22,7 +22,7 @@ const Blog = () => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/posts/list?p=${activePage}`)
+      .get(`posts/list?p=${activePage}`)
       .then((response) => {
         const pageNumbers = Math.ceil(response.data.count / 6);
         dispatch(SetPageNumbers(pageNumbers));

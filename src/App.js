@@ -22,7 +22,7 @@ function App() {
     if (localStorage.hasOwnProperty("token")) {
       const token = localStorage.getItem("token");
       axios
-        .post("http://127.0.0.1:8000/auth/jwt/verify/", { token: token })
+        .post("auth/jwt/verify/", { token: token })
         .then((response) => {
           dispatch(SetVerify(true));
           dispatch(SetToken(token));

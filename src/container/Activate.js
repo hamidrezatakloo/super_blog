@@ -8,7 +8,7 @@ const Activate = () => {
   let params = useParams();
   useEffect(() => {
     axios
-      .post("http://127.0.0.1:8000/auth/users/activation/", params)
+      .post("auth/users/activation/", params)
       .then((response) => {
         SetStatus(true);
         setMessage("your account activated successfully");

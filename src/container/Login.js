@@ -10,7 +10,7 @@ const Login = () => {
 
   const ConfigureUser = (token) => {
     axios
-      .get("http://127.0.0.1:8000/auth/users/me", {
+      .get("auth/users/me", {
         headers: {
           Authorization: "JWT " + token,
         },

@@ -32,7 +32,7 @@ const EditProfile = () => {
 
     //update user with sending patch request
     const promise = axios
-      .patch("http://127.0.0.1:8000/auth/users/me/", form_data, {
+      .patch("auth/users/me/", form_data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: "JWT " + localStorage.getItem("token"),

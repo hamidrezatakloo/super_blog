@@ -23,7 +23,7 @@ const NewPost = () => {
     form_data.append("description", data.desc);
 
     axios
-      .post("http://127.0.0.1:8000/posts/new", form_data, {
+      .post("posts/new", form_data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: "JWT " + localStorage.getItem("token"),
