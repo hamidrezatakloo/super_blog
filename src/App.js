@@ -15,6 +15,7 @@ import EditProfile from "./components/Editprofile";
 import { useEffect } from "react";
 import axios from "axios";
 import NotFound from "./container/NotFound";
+import Post from "./container/Post";
 function App() {
   const dispatch = useDispatch();
   const verify = useSelector((state) => state.authentication.verify);
@@ -45,6 +46,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
+          <Route path="/blog/posts/:id" element={<Post />}></Route>
           <Route
             path="/login"
             element={verify ? <Navigate to="/dashboard" /> : <Login />}
