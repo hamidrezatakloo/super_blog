@@ -1,6 +1,6 @@
 import PostPreview from "../components/PostPreview";
 import Pagination from "../components/pagination";
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import { SetPageNumbers } from "../slices/PaginationSlice";
@@ -38,17 +38,21 @@ const Blog = () => {
         <h1 className="font-bold text-2xl my-4">Hot Article</h1>
         <div className="grid grid-cols-12">
           <div className="col-span-12 xl:col-span-6 flex justify-center flex-col xl:mr-16">
-            <img
-              src={mainData[0] && mainData[0].image}
-              alt="hotArticle"
-              className="rounded object-contain"
-            />
-            <h2 className="font-medium text-2xl my-4">
-              {mainData[0] && mainData[0].title}
-            </h2>
-            <p className="text-gray-500 font-medium">
-              {mainData[0] && mainData[0].description}
-            </p>
+            {mainData[0] && (
+              <Fragment>
+                <img
+                  src={mainData[0].image}
+                  alt="hotArticle"
+                  className="rounded object-contain"
+                />
+                <h2 className="font-medium text-2xl my-4">
+                  {mainData[0].title}
+                </h2>
+                <p className="text-gray-500 font-medium line-clamp-3">
+                  {mainData[0].description}
+                </p>
+              </Fragment>
+            )}
           </div>
           <div className="col-span-6 hidden xl:block">
             {mainData.slice(1, 4).map((post, index) => (
