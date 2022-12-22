@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./container/Home";
 import Blog from "./container/Blog";
 import Layout from "./hoc/Layout";
@@ -39,11 +39,11 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Layout>
         <Toaster />
         <Routes>
-          <Route path="/super_blog" element={<Home />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
           <Route
             path="/login"
@@ -65,7 +65,7 @@ function App() {
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
