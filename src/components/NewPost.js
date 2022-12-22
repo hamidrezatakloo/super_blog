@@ -13,7 +13,7 @@ const NewPost = () => {
   const [postImage, setPostImage] = useState("");
   const onSubmit = (data, e) => {
     e.preventDefault();
-    console.log(data);
+    const toastId = toast.loading("posting...");
     const url = URL.createObjectURL(data.image[0]);
     setPostImage(url);
 
@@ -29,8 +29,16 @@ const NewPost = () => {
           Authorization: "JWT " + localStorage.getItem("token"),
         },
       })
-      .then((response) => toast.success("post published successfully"))
-      .catch((error) => toast.error("An error occurred"));
+      .then((response) =>
+        toast.success("post published successfully", {
+          id: toastId,
+        })
+      )
+      .catch((error) =>
+        toast.error("An error occurred! submit form again", {
+          id: toastId,
+        })
+      );
   };
 
   useEffect(() => {
