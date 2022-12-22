@@ -1,4 +1,6 @@
-const Post = ({ src, title, desc, author, create_date, col }) => {
+import { Link } from "react-router-dom";
+
+const PostPreview = ({ id, src, title, desc, author, create_date, col }) => {
   return (
     <div
       className={`${
@@ -7,7 +9,11 @@ const Post = ({ src, title, desc, author, create_date, col }) => {
           : "first:pt-0 py-8  border-b-2 border-gray-200 last:border-0"
       }  `}
     >
-      <div className={`${col ? "md:flex-col" : ""} flex-1 flex gap-2`}>
+      <Link
+        to={`posts/${id}`}
+        state={{ title, src, desc }}
+        className={`${col ? "md:flex-col" : ""} flex-1 flex gap-2`}
+      >
         <img
           src={src}
           className={`${
@@ -22,7 +28,7 @@ const Post = ({ src, title, desc, author, create_date, col }) => {
             {desc}
           </p>
         </div>
-      </div>
+      </Link>
       <div className="text-green-700 flex gap-x-2 pl-2 my-2 text-sm mt-8">
         <p>{create_date}</p>
         <p>{author}</p>
@@ -31,4 +37,4 @@ const Post = ({ src, title, desc, author, create_date, col }) => {
   );
 };
 
-export default Post;
+export default PostPreview;
