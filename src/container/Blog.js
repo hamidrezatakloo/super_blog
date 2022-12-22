@@ -1,4 +1,4 @@
-import Post from "../components/Post";
+import PostPreview from "../components/PostPreview";
 import Pagination from "../components/pagination";
 import { useEffect } from "react";
 import axios from "axios";
@@ -52,7 +52,8 @@ const Blog = () => {
           </div>
           <div className="col-span-6 hidden xl:block">
             {mainData.slice(1, 4).map((post, index) => (
-              <Post
+              <PostPreview
+                id={post.id}
                 src={post.image}
                 key={index}
                 title={post.title}
@@ -68,8 +69,9 @@ const Blog = () => {
         <h1 className="font-bold text-2xl my-4">Last Articles</h1>
         <div className="grid grid-cols-12">
           {data.map((post, index) => (
-            <Post
+            <PostPreview
               col
+              id={post.id}
               src={post.image}
               key={index}
               title={post.title}
