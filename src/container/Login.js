@@ -25,15 +25,23 @@ const Login = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault();
+    const toastId = toast.loading("loading...");
     axios
-      .post("http://127.0.0.1:8000/auth/jwt/create/", data)
+      .post("auth/jwt/create/", data)
       .then((response) => {
         dispatch(SetToken(response.data.access));
         dispatch(SetVerify(true));
         localStorage.setItem("token", response.data.access);
         ConfigureUser(response.data.access);
+        toast.success("Logged in successfully", {
+          id: toastId,
+        });
       })
-      .catch((error) => toast.error(error.response.data.detail));
+      .catch((error) =>
+        toast.error(error.response.data.detail, {
+          id: toastId,
+        })
+      );
   };
   return (
     <section className="relative flex flex-col lg:flex-row h-screen overflow-hidden">
@@ -143,7 +151,7 @@ const Login = () => {
 
       <img
         alt="Welcome"
-        src="super_blog/login.webp"
+        src="login.webp"
         className="w-full lg:w-1/2 object-cover"
       />
     </section>
