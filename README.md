@@ -25,3 +25,4 @@ For support, email takloohamidreza@gmail.com or join our Slack channel.
 ## Screenshots
 
 ![App Screenshot](https://i.paste.pics/KM53E.png)
+![App Screenshot](https://i.paste.pics/KM58U.png)
